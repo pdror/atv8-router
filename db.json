@@ -14,6 +14,28 @@
       "endereco": "rua jose batista",
       "numero": "480",
       "id": 2
+    },
+    {
+      "nome": "Joyce Mikallea das Mercês Aciole",
+      "idade": "25",
+      "cidade": "Campina Grande",
+      "cpf": "75285978523",
+      "complemento": "",
+      "curso": "Computação",
+      "estado": "PB",
+      "matricula": "151085041",
+      "bairro": "Liberdade",
+      "cep": "55778123",
+      "endereco": "Rua dos Bosques",
+      "numero": "713",
+      "id": 3
     }
-  ]
+  ],
+  "about": {
+    "descricao": "Aplicação web de visualização e cadastro de alunos feita com React, utilizando Material-UI, Formik, validação de dados com Yup e mais...",
+    "integrante1": "Joyce Mikaella",
+    "integrante2": "Pedro Ramos",
+    "github": "https://github.com/pdror/atv8-router",
+    "server": "https://my-json-server.typicode.com/pdror/atv8-router/"
+  }
 }

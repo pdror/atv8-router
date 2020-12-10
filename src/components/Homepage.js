@@ -8,19 +8,9 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
 import AccountCircle from '@material-ui/icons/AccountCircle'
-import NestedList from './ListaAlunos'
 import { Typography } from '@material-ui/core'
 import Divider from '@material-ui/core/Divider';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
-
-import { SettingsInputComponent, SettingsPowerRounded } from '@material-ui/icons';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -34,7 +24,7 @@ class Homepage extends React.Component {
     componentDidMount = () => {
         try {
             //axios.get("https://my-json-server.typicode.com/pdror/atv8-router/alunos")
-            axios.get("http://localhost:8000/alunos")
+            axios.get("https://my-json-server.typicode.com/pdror/atv8-router/alunos")
                 .then((response) => {
                     this.setState({ alunos: response.data })
                 })
@@ -52,7 +42,7 @@ class Homepage extends React.Component {
                     <hr />
                     <List>
                     { this.state.alunos.map((aluno) => (
-                        <div>
+                        <div key={aluno.id}>
                         <ListItem>
                             <ListItemIcon>
                                 <Avatar>

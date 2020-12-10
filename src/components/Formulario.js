@@ -40,7 +40,7 @@ const Formulario = () => {
         //event.preventDefault();
         console.log(values);
         
-        axios.post("http://localhost:8000/alunos", {
+        axios.post("https://my-json-server.typicode.com/pdror/atv8-router/alunos", {
                 nome: values.nome,
                 idade: values.idade,
                 cidade: values.cidade,
