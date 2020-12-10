@@ -1,11 +1,6 @@
 {
   "alunos": [
     {
-      "id": 1,
-      "nome": "Pedro Ramos",
-      "matricula": 161085040
-    },
-    {
       "nome": "Pedro Henrique Ferreira Ramos",
       "idade": "23",
       "cidade": "Nova Floresta",

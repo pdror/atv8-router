@@ -8,6 +8,19 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
 import AccountCircle from '@material-ui/icons/AccountCircle'
+import NestedList from './ListaAlunos'
+import { Typography } from '@material-ui/core'
+import Divider from '@material-ui/core/Divider';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Collapse from '@material-ui/core/Collapse';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+
+import { SettingsInputComponent, SettingsPowerRounded } from '@material-ui/icons';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -38,16 +51,35 @@ class Homepage extends React.Component {
                     <h1>Lista de Alunos</h1>
                     <hr />
                     <List>
-                        {this.state.alunos.map((aluno) => {
-                            return (
-                                <ListItem style={{ paddingLeft: '0' }}>
-                                    <Avatar>
-                                        <AccountCircle />
-                                    </Avatar>
-                                    <ListItemText style={{ paddingLeft: 15 }} primary={aluno.nome} secondary={aluno.matricula} />
-                                </ListItem>
-                            )
-                        })}
+                    { this.state.alunos.map((aluno) => (
+                        <div>
+                        <ListItem>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <AccountCircle />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary={aluno.nome} secondary={
+                                <React.Fragment>
+                                    <Typography
+                                        component="span"
+                                        variant="body2"
+                                    >
+                                        Matrícula: {aluno.matricula}, CPF: {aluno.cpf}
+                                        <br />
+                                        Curso: {aluno.curso}
+                                        <br />
+                                        Idade: {aluno.idade}
+                                        <br />
+                                        Localização: {aluno.cidade} - {aluno.estado}, {aluno.cep}
+                                    </Typography>
+                                </React.Fragment>
+                            } />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                    </div>
+                    ))}
+
                     </List>
                     <Link to="/new">
                         <AddButton />
