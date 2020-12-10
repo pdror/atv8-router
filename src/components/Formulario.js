@@ -3,6 +3,7 @@ import { Formik, Field, Form, useField, FieldArray } from 'formik';
 import { TextField, Button, Select, MenuItem, FormControl } from '@material-ui/core';
 import * as Yup from 'yup';
 import estadosArray from '../helpers/estados';
+import axios from 'axios';
 
 const MyTextField = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -35,11 +36,14 @@ const schema = Yup.object().shape({
 });
 
 const Formulario = () => {
-    const handleSubmitting = (values, { setSubmitting }) => {
-        setTimeout(() => {
-            console.info(JSON.stringify(values, null, 2))
-            setSubmitting(false)
-        }, 400)
+    const handleSubmitting = (event, values, { setSubmitting }) => {
+        event.preventDefault();
+        console.log(values);
+        
+        axios
+            .post("https://my-json-server.typicode.com/pdror/atv8-router/alunos", values)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     return (
