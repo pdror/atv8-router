@@ -1,8 +1,6 @@
 import React from 'react';
 import ProminentAppBar from './ProminentAppBar';
-import { Typography } from '@material-ui/core'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 class About extends React.Component {
     constructor(props) {
@@ -39,8 +37,8 @@ class About extends React.Component {
                     <h4>
                         Links úteis: 
                     </h4>
-                    <p><a href={this.state.about.github} target="_blank">Github</a></p>
-                    <p><a href={this.state.about.server} target="_blank">JSON Server</a></p>
+                    <p><a href={this.state.about.github} target="_blank" rel="noreferrer">Github</a></p>
+                    <p><a href={this.state.about.server} target="_blank" rel="noreferrer">JSON Server</a></p>
                 </div>
             </div>
         );
