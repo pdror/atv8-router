@@ -36,13 +36,33 @@ const schema = Yup.object().shape({
 });
 
 const Formulario = () => {
-    const handleSubmitting = (event, values, { setSubmitting }) => {
-        event.preventDefault();
+    const handleSubmitting = ( values, { setSubmitting }) => {
+        //event.preventDefault();
         console.log(values);
         
-        axios
-            .post("https://my-json-server.typicode.com/pdror/atv8-router/alunos", values)
-            .then(res => console.log(res))
+        axios.post("http://localhost:8000/alunos", {
+                nome: values.nome,
+                idade: values.idade,
+                cidade: values.cidade,
+                cpf: values.cpf,
+                complemento: values.complemento,
+                curso: values.curso,
+                estado: values.estado,
+                matricula: values.matricula,
+                bairro: values.bairro,
+                cep: values.cep,
+                endereco: values.endereco,
+                numero: values.numero
+            }, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => {
+                console.log(res);
+                console.log("====== CADASTRADO =======")
+            })
             .catch(err => console.log(err));
     }
 
@@ -102,7 +122,7 @@ const Formulario = () => {
                         <br />
                         <Button type="submit" disabled={isSubmitting} color="primary">
                             Cadastrar
-                    </Button>
+                        </Button>
                     </FormControl>
                 </Form>
             )}
